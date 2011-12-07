@@ -66,7 +66,7 @@ class Cms::Page < ActiveRecord::Base
   end
 
   def linking_full_path
-    "#{self.site.path}/#{full_path}".squeeze('/')
+    "/#{self.site.path}/#{full_path}".squeeze('/')
   end
 
   # Transforms existing cms_block information into a hash that can be used
