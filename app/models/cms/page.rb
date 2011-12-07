@@ -64,7 +64,11 @@ class Cms::Page < ActiveRecord::Base
   def full_path
     self.read_attribute(:full_path) || self.assign_full_path
   end
-  
+
+  def linking_full_path
+    "#{self.site.path}/#{full_path}".squeeze('/')
+  end
+
   # Transforms existing cms_block information into a hash that can be used
   # during form processing. That's the only way to modify cms_blocks.
   def blocks_attributes(was = false)
