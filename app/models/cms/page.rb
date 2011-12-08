@@ -123,6 +123,10 @@ class Cms::Page < ActiveRecord::Base
   def url
     "http://#{self.site.hostname}#{self.full_path}"
   end
+
+  def full_url
+    "http://#{self.site.hostname}#{self.linking_full_path}"
+  end
   
   # Method to collect prevous state of blocks for revisions
   def blocks_attributes_was
