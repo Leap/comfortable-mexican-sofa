@@ -60,7 +60,8 @@ protected
     if @cms_page = @cms_site.pages.published.find_by_full_path('/404')
       render_html(404)
     else
-      render :text => I18n.t('cms.content.page_not_found'), :status => 404
+      #render :text => I18n.t('cms.content.page_not_found'), :status => 404
+      raise
     end
   end
 
